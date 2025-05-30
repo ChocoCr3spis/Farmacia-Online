@@ -1,1 +1,41 @@
-<p>register works!</p>
+<div class="register-container">
+    <p-card header="Registro de Usuario" styleClass="register-card">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-fluid">
+        <div class="field">
+          <label for="username">Usuario</label>
+          <input id="username" type="text" pInputText formControlName="username" />
+          <div class="error-cont">
+            <small *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="p-error">
+                Usuario requerido.
+            </small>
+          </div>
+        </div>
+  
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" pInputText formControlName="email" />
+          <div class="error-cont">
+            <small *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="p-error">
+                Email inválido.
+            </small>
+          </div>
+        </div>
+  
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <p-password formControlName="password" toggleMask inputId="password"></p-password>
+          <div class="error-cont">
+            <small *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="p-error">
+                Mínimo 6 caracteres.
+            </small>
+          </div>
+        </div> 
+
+        <div class="register-footer">
+            <a href="/login">Tienes cuenta? Login</a>
+            <p-button type="submit" label="Registrarse" icon="pi pi-user-plus" [disabled]="registerForm.invalid" />
+        </div>
+      </form>
+    </p-card>
+  </div>
+  

@@ -1,0 +1,41 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    p-card {
+        width: 600px;
+        padding: 1rem;
+    }
+
+    .field {
+        margin-bottom: 1rem;
+
+        label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        }
+
+        small {
+        color: red;
+        font-size: 0.75rem;
+        }
+    }
+}
+  
+input, .btn-cont, :host ::ng-deep .p-password, :host ::ng-deep input{
+    width: 100% !important;
+}
+
+.register-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+p {
+    margin: 0;
+}

@@ -1,0 +1,31 @@
+<div class="layout">
+    <p-menubar [model]="menuItems">
+        <ng-template pTemplate="start">
+          <span class="logo">PharmaShop</span>
+        </ng-template>
+      
+        <ng-template pTemplate="end">
+          <div class="right-menu">
+            <p-inputgroup>
+                <input pInputText placeholder="Keyword" />
+                <p-inputgroup-addon>
+                    <p-button icon="pi pi-search"  variant="text"/>
+                </p-inputgroup-addon>
+            </p-inputgroup>            <button pButton icon="pi pi-shopping-cart" class="p-button-rounded p-button-text"></button>
+            <p-button icon="pi pi-user" (click)="user.toggle($event)"/>
+          </div>
+        </ng-template>
+      </p-menubar>
+      
+      <div class="route-content">
+        <router-outlet></router-outlet>
+      </div>
+</div>
+
+<p-popover #user>
+    <div class="flex flex-col gap-4">
+        <div>
+            Samueeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeel
+        </div>
+    </div>
+</p-popover>

@@ -1,0 +1,34 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 3em;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-weight: bolder;
+    font-size: xx-large;
+    color: var(--p-button-primary-background)
+}
+
+.right-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+}
+
+.route-content {
+    margin-top: 1em;
+    background: var(--p-menubar-background);
+    border: 1px solid var(--p-menubar-border-color);
+    border-radius: var(--p-menubar-border-radius);
+    color: var(--p-menubar-color);
+    padding: var(--p-menubar-padding);
+    flex: 1; // ocupa todo el espacio restante
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow: hidden; 
+}
