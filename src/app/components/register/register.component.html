@@ -2,10 +2,10 @@
     <p-card header="Registro de Usuario" styleClass="register-card">
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="p-fluid">
         <div class="field">
-          <label for="username">Usuario</label>
-          <input id="username" type="text" pInputText formControlName="username" />
+          <label for="name">Usuario</label>
+          <input id="name" type="text" pInputText formControlName="name" />
           <div class="error-cont">
-            <small *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="p-error">
+            <small *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="p-error">
                 Usuario requerido.
             </small>
           </div>

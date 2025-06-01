@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../core/services/integration/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,28 +19,19 @@ export class LoginComponent {
     private fb: FormBuilder,
     private http: HttpClient,
     private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
-  onSubmit() {
-      this.router.navigate(['/home']);
-      const { username, password } = this.loginForm.value;
-      this.http.post('/api/login', { username, password }).subscribe({
-        next: (res: any) => {
-          // Guarda el token o sesión si aplica
-          this.messageService.add({ severity: 'success', summary: 'Login correcto' });
-          this.router.navigate(['/home']); // cambia a donde desees redirigir
-        },
-        error: (err) => {
-          // Si usas interceptor, esto puede no ser necesario aquí
-          this.messageService.add({ severity: 'error', summary: 'Login fallido', detail: 'Credenciales inválidas' });
-        }
-      });
-    
+  async onSubmit() {
+      const { email, password } = this.loginForm.value;
+      await this.authService.login({ email: email, password: password });
+      // this.router.navigate(['/home']);
+
   }
 }

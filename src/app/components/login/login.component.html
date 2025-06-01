@@ -2,11 +2,11 @@
     <p-card header="Iniciar Sesión">
       <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
         <div class="field">
-          <label for="username">Usuario</label>
-          <input id="username" type="text" pInputText formControlName="username" />
+          <label for="email">Email</label>
+          <input id="email" type="text" pInputText formControlName="email" />
           <div class="error-cont">
-            <small *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
-                Usuario requerido
+            <small *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                Email requerido
               </small>
           </div>
         </div>
